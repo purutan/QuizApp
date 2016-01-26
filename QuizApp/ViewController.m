@@ -48,7 +48,7 @@ NSInteger quizResult;
             break;
         
         case 2:
-            quizText = @"問2\n機会費用（）とは事業や行為に投下した資金・労力のうち、事業や行為の撤退・縮小・中止によっても戻ってこない投下資金または労力を言う。";
+            quizText = @"問2\n機会費用とは事業や行為に投下した資金・労力のうち、事業や行為の撤退・縮小・中止によっても戻ってこない投下資金または労力を言う。";
             _textView.text = quizText;
             [self.view addSubview:_textView];
             break;
