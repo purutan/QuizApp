@@ -12,6 +12,7 @@ NSInteger quizNo;
 NSString *quizText;
 NSInteger quizAnswer;
 NSInteger quizResult;
+BOOL answerFlag;
 
 @interface ViewController ()
 
@@ -26,6 +27,10 @@ NSInteger quizResult;
     [self setParts];
     quizNo = 1 ;
     [self quiz];
+    
+    _textView.hidden = YES;
+    // 一時的に隠す　Noが代入されるまで隠れている
+    
     
 }
 
@@ -44,31 +49,47 @@ NSInteger quizResult;
         case 1:
              quizText = @"問１\n最近話題の駄菓子がテーマの漫画・アニメ作品と言えば『だがしかし』である。";
             _textView.text = quizText;
-            [self.view addSubview:_textView];
+            answerFlag = 1;
+            
+            
+         //   [self.view addSubview:_textView];
             break;
         
         case 2:
             quizText = @"問2\n機会費用とは事業や行為に投下した資金・労力のうち、事業や行為の撤退・縮小・中止によっても戻ってこない投下資金または労力を言う。";
             _textView.text = quizText;
-            [self.view addSubview:_textView];
+            
+            answerFlag = 0;
+            
+            
+         //   [self.view addSubview:_textView];
             break;
             
         case 3:
             quizText = @"問3\nサッカーにて一人の選手が３得点あげるとハットトリックと呼ばれるが、ダーツではブルに３本とも命中した場合にハットトリックと呼ばれる。";
             _textView.text = quizText;
-            [self.view addSubview:_textView];
+            
+            answerFlag = 1;
+            
+         //   [self.view addSubview:_textView];
             break;
             
         case 4:
             quizText = @"問4\n『敷居が高い』は高級すぎたり、上品すぎて入りにくいという意味である。";
             _textView.text = quizText;
-            [self.view addSubview:_textView];
+            
+            answerFlag = 0;
+            
+        //    [self.view addSubview:_textView];
             break;
             
         case 5:
             quizText = @"問5\n技術的特異点（シンギュラリティ）とは、テクノロジーが急速に変化し、それにより甚大な影響がもたらされ、人間の生活が後戻りできないほどに変容してしまうような、来るべき未来のことである。";
             _textView.text = quizText;
-            [self.view addSubview:_textView];
+            
+            answerFlag = 1;
+            
+        //    [self.view addSubview:_textView];
             break;
             
         default:
@@ -78,14 +99,30 @@ NSInteger quizResult;
 }
 
 
+- (void)answer2:(id)sender {
+    if (quizAnswer == answerFlag) {
+        _textAnswer.text = [NSString stringWithFormat:@"問%01ldは正解です。",(long)quizNo];
+        quizResult ++;
+        [self showQuiz];
+    } else {
+        _textAnswer.text = [NSString stringWithFormat:@"問%01ldは不正解です。",(long)quizNo];
+        [self showQuiz];
+    }
+    
+}
+
+
+
 - (void)answer{
     switch (quizNo) {
         case 1:
-            if (quizAnswer == 1) {
+            if (quizAnswer == answerFlag) {
                 _textAnswer.text = [NSString stringWithFormat:@"問%01ldは正解です。",(long)quizNo];
                 quizResult ++;
                 [self showQuiz];
-            } else if (quizAnswer == 0){
+            } else
+                /*if (quizAnswer == 0) */
+            {
                 _textAnswer.text = [NSString stringWithFormat:@"問%01ldは不正解です。",(long)quizNo];
                 [self showQuiz];
             }
@@ -142,7 +179,7 @@ NSInteger quizResult;
 }
 
 - (void)showQuiz{
-    [self.view addSubview:_textAnswer];
+ //   [self.view addSubview:_textAnswer];
     quizNo++;
     [self quiz];
 
@@ -151,9 +188,11 @@ NSInteger quizResult;
 
 - (void)result{
     NSLog(@"%ld",quizResult);
-    [self.view addSubview:_textAnswer];
+    //[self.view addSubview:_textAnswer];
     _textResult.text = [NSString stringWithFormat:@"正解率は%.0f％です",(double)(quizResult/5.0f)*100];
-    [self.view addSubview:_textResult];
+   // [self.view addSubview:_textResult];
+   //　 ↑コードで書いたインスタンスなどを表示する時に使う
+    // ストーリーボードでは　addsubview する必要はない
     quizNo = 1;
     quizResult = 0;
     
@@ -162,6 +201,7 @@ NSInteger quizResult;
 - (IBAction)corectAnswer:(id)sender {
     //NSLog(@"○が押された");
     quizAnswer = 1;
+    _textView.hidden = NO;
     [self answer];
 }
 

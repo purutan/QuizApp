@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuizApp/ViewController.m"
-            timestampString = "475515720.701902"
+            timestampString = "475594697.915226"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "-result"
             landmarkType = "5">
          </BreakpointContent>
