@@ -84,6 +84,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfg-ND-Ih5">
+                                <rect key="frame" x="122" y="494" width="76" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="リセット">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6kt-T6-SMC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -113,6 +123,10 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="batuButton" destination="qCt-4M-vIR" id="9z5-rx-Dx8"/>
+                        <outlet property="explainText" destination="BJx-5C-4Af" id="Fh3-iv-0gd"/>
+                        <outlet property="maruButton" destination="IZA-nk-4gg" id="CkW-9g-jbb"/>
+                        <outlet property="resetButton" destination="nfg-ND-Ih5" id="jUr-jm-TYg"/>
                         <outlet property="textAnswer" destination="i6y-lv-CPw" id="ike-oV-8fj"/>
                         <outlet property="textResult" destination="My4-gY-jj4" id="uz1-C5-Ds0"/>
                         <outlet property="textView" destination="4vz-Jk-P1l" id="8Oo-7o-X9A"/>
